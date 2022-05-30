@@ -3,7 +3,7 @@ version: "2"
 services:
 
   wp:
-    image: wplocal:1.0
+    image: wplocal:1.1
     ports:
       - "$PORT_WP:80"
       - "4433:443"
