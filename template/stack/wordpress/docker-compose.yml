@@ -5,8 +5,7 @@ services:
 
 
   wp:
-    #image: wordpress:latest
-    image: wordpress:php7.4-fpm
+    image: wordpress:latest
     ports:
       - "$PORT:80"
       - "4433:443"
