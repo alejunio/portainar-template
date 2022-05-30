@@ -22,7 +22,7 @@ services:
       WORDPRESS_DB_NAME: database
     restart: always
     volumes:
-      - /home/sites/"${DOMINIO}"/public:/var/www/html
+      - /home/sites/${DOMINIO}/public:/var/www/html
       - ./conf/php.ini:/usr/local/etc/php/php.ini
  
 
@@ -38,7 +38,7 @@ services:
       MYSQL_USER: user
       MYSQL_PASSWORD: password
     volumes:
-      - /home/sites/"${DOMINIO}"/db_dados:/var/lib/mysql
+      - /home/sites/${DOMINIO}/db_dados:/var/lib/mysql
 
 
   phpmyadmin:
