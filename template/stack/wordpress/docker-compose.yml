@@ -10,7 +10,7 @@ services:
       - "4433:443"
     restart: always
     volumes:
-      - ./conf/app.conf:/etc/nginx/templates
+      - ./conf/app.conf:/etc/nginx/sites-enabled/default
   wp:
     #image: wordpress:latest
     image: wordpress:php7.4-fpm
