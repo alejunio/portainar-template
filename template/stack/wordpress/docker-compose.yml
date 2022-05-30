@@ -2,8 +2,6 @@ version: "2"
 
 services:
 
-
-
   wp:
     image: wordpress:latest
     ports:
@@ -22,7 +20,6 @@ services:
     restart: always
     volumes:
       - /home/sites/${DOMINIO}/public:/var/www/html
-      - ./conf/php.ini:/usr/local/etc/php/php.ini
       - ./conf/php.ini:/$PHP_INI_DIR/php.ini
  
 
