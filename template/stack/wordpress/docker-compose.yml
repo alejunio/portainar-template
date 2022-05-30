@@ -15,14 +15,14 @@ services:
     links:
       - mysqlserver
     environment:
-      DOMINIO: ${dominio}
+      DOMINIO: ${DOMINIO}
       WORDPRESS_DB_HOST: mysqlserver
       WORDPRESS_DB_USER: user
       WORDPRESS_DB_PASSWORD: password
       WORDPRESS_DB_NAME: database
     restart: always
     volumes:
-      - /home/sites/"${dominio}"/public:/var/www/html
+      - /home/sites/"${DOMINIO}"/public:/var/www/html
       - ./conf/php.ini:/usr/local/etc/php/php.ini
  
 
@@ -38,7 +38,7 @@ services:
       MYSQL_USER: user
       MYSQL_PASSWORD: password
     volumes:
-      - /home/sites/"${dominio}"/db_dados:/var/lib/mysql
+      - /home/sites/"${DOMINIO}"/db_dados:/var/lib/mysql
 
 
   phpmyadmin:
