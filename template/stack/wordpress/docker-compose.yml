@@ -2,11 +2,21 @@ version: "2"
 
 services:
 
-  web:
-    image: wordpress:latest
+
+  nginx: 
+    image: nginx:stable-alpine
     ports:
       - "8081:80"
       - "4433:443"
+    restart: always
+    volumes:
+      - ./conf/app.conf:/etc/nginx/templates
+  wp:
+    #image: wordpress:latest
+    image: wordpress:php7.4-fpm
+    #ports:
+    #  - "8081:80"
+    #  - "4433:443"
     depends_on:
       - mysqlserver
     links:
@@ -21,6 +31,7 @@ services:
     volumes:
       - /home/sites/site.com/public:/var/www/html
       - ./conf/php.ini:/usr/local/etc/php/php.ini
+ 
 
   mysqlserver:
     image: mysql:5.7
