@@ -47,8 +47,5 @@ services:
     links:
       - mysqlserver
 
-volumes:
-  conf:
-  db_dados:
  
   
