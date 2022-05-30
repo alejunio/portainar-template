@@ -3,9 +3,9 @@ version: "2"
 services:
 
   wp:
-    image: wordpress:latest
+    build: ./wordpress_container
     ports:
-      - "$PORT:80"
+      - "$PORT_WP:80"
       - "4433:443"
     depends_on:
       - mysqlserver
@@ -14,9 +14,9 @@ services:
     environment:
       DOMINIO: ${DOMINIO}
       WORDPRESS_DB_HOST: mysqlserver
-      WORDPRESS_DB_USER: user
-      WORDPRESS_DB_PASSWORD: password
-      WORDPRESS_DB_NAME: database
+      WORDPRESS_DB_USER: ${DBUSER}
+      WORDPRESS_DB_PASSWORD: ${DBPASS}
+      WORDPRESS_DB_NAME: ${DBNAME}
     restart: always
     volumes:
       - /home/sites/${DOMINIO}/public:/var/www/html
@@ -30,10 +30,10 @@ services:
       - "3306:3306"
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: database
-      MYSQL_USER: user
-      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: ${DBPASSROOT}
+      MYSQL_DATABASE: ${DBNAME}
+      MYSQL_USER: ${DBUSER}
+      MYSQL_PASSWORD: ${DBPASS}
     volumes:
       - /home/sites/${DOMINIO}/db_dados:/var/lib/mysql
 
