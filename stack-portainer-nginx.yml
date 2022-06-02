@@ -1,0 +1,40 @@
+#
+# Nginx Proxy Manager
+# Email: admin@example.com
+# Password: changeme
+#
+
+
+version: "3.9"
+services:
+
+  nginxproxy:
+    image: 'jc21/nginx-proxy-manager:latest'
+    restart: unless-stopped
+    ports:
+      - '80:80'
+      - '81:81'
+      - '443:443'
+    volumes:
+      - ./data_Nginx:/data
+      - ./letsencrypt:/etc/letsencrypt  
+
+  portainer:
+    image: portainer/portainer:alpine
+    container_name: portainer
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./portainer-data:/data
+    ports:
+      - 9000:9000 
+
+volumes:
+  data_Nginx:
+  letsencrypt:
+
+ 
+  
