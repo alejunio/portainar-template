@@ -20,7 +20,6 @@ services:
     restart: always
     volumes:
       - /home/sites/${DOMINIO}/public:/var/www/html
-      #- ./conf/php.ini:/usr/local/etc/php/php.ini
  
 
   mysqlserver:
