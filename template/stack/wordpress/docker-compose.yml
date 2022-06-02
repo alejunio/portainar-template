@@ -3,10 +3,9 @@ version: "2"
 services:
 
   wp:
-    image: wordpress:latest
+    image: wordpress:php${PHP_VERSION}-fpm
     ports:
       - "$PORT_WP:80"
-      - "4433:443"
     depends_on:
       - mysqlserver
     links:
