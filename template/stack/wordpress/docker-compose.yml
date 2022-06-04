@@ -14,7 +14,7 @@ services:
     restart: always
     volumes:
       - /home/devops/nginx/app.conf:/etc/nginx/conf.d/app.conf
-      - /home/sites/${DOMINIO}/public:/var/www/html
+      - /home/sites/aws.dev.br/public:/var/www/html
 
 
     
@@ -24,7 +24,7 @@ services:
       - "9000:9000"
     restart: always
     volumes:
-      - /home/sites/${DOMINIO}/public:/var/www/html
+      - /home/sites/aws.dev.br/public:/var/www/html
       #- ./conf/php.ini:/usr/local/etc/php/php.ini 
     
 
