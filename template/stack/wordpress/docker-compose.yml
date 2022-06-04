@@ -18,9 +18,7 @@ services:
 
 
   php:
-    image: wordpress:cli-php7.4
-    ports:
-      - "9000:9000"
+    image: wordpress
     depends_on:
       - mysqlserver
     links:
