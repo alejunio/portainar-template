@@ -7,16 +7,25 @@ services:
     image: nginx:alpine
     ports:
       - "8081:80"
-    #depends_on:
-    #  - php
-    #links:
-    #  - php
+    depends_on:
+      - php
+    links:
+      - php
     restart: always
     volumes:
-     # - /home/devops/nginx/app.conf:/etc/nginx/conf.d/app.conf
+      - /home/devops/nginx/app.conf:/etc/nginx/conf.d/app.conf
       - /home/sites/aws.dev.br/public:/var/www/html
 
 
+  php:
+    image: php:8.0-fpm
+    ports:
+      - "9000:9000"
+    restart: always
+    volumes:
+      - /home/sites/aws.dev.br/public:/var/www/html
+    #  - ./conf/php.ini:/usr/local/etc/php/php.ini 
+    
 
 
  
