@@ -18,7 +18,7 @@ services:
 
 
   php:
-    image: wordpress
+    image: wordpress:cli-php7.4
     depends_on:
       - mysqlserver
     links:
