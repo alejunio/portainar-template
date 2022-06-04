@@ -19,12 +19,10 @@ services:
 
   php:
     image: php:fpm
-    ports:
-      - "9000"
     restart: always
-    #volumes:
-     # - /home/sites/aws.dev.br/public:/var/www/html
-    #  - ./conf/php.ini:/usr/local/etc/php/php.ini 
+    volumes:
+      - /home/sites/aws.dev.br/public:/var/www/html
+      - /home/beta/php.ini:/usr/local/etc/php/php.ini 
     
 
 
