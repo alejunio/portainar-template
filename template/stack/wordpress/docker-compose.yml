@@ -8,8 +8,6 @@ services:
     image: nginx:alpine
     ports:
       - "8081:80"
-    networks:
-      - wp01
     depends_on:
       - php
     links:
@@ -17,18 +15,17 @@ services:
     restart: always
     volumes:
       - /home/beta/app.conf:/etc/nginx/conf.d/app.conf
-      - /home/beta/public:/var/www/html
+      - /home/sites/aws.dev.br/public:/var/www/html
 
 
   php:
     image: php:fpm
-    networks:
-      - wp01
     restart: always
     volumes:
-      - /home/beta/public:/var/www/html
+      - /home/sites/aws.dev.br/public:/var/www/html
       - /home/beta/php.ini:/usr/local/etc/php/php.ini 
     
+
 
   mysqlserver:
     image: mysql:5.7
@@ -45,6 +42,4 @@ services:
       - /home/sites/${DOMINIO}/db_dados:/var/lib/mysql
 
 
-networks:
-  wp01:
   
