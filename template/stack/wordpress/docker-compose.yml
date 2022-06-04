@@ -14,7 +14,7 @@ services:
     restart: always
     volumes:
       - /home/devops/nginx/app.conf:/etc/nginx/conf.d/app.conf
-      - /home/sites/${DOMINIO}/public:/var/www/html
+    #  - /home/sites/${DOMINIO}/public:/var/www/html
 
   php:
     image: php:8.0-fpm
@@ -25,29 +25,5 @@ services:
       - /home/sites/${DOMINIO}/public:/var/www/html
      # - /home/devops/php/php.ini:/usr/local/etc/php/php.ini 
 
-  mysqlserver:
-    image: mysql:5.7
-    command: [ "--default-authentication-plugin=mysql_native_password" ]
-    ports:
-      - "3306:3306"
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: ${DBPASSROOT}
-      MYSQL_DATABASE: ${DBNAME}
-      MYSQL_USER: ${DBUSER}
-      MYSQL_PASSWORD: ${DBPASS}
-    volumes:
-      - /home/sites/${DOMINIO}/db_dados:/var/lib/mysql
-
-
-  phpmyadmin:
-    image: phpmyadmin:apache
-    restart: always
-    ports:
-      - "8082:80"
-    environment:
-      - PMA_ARBITRARY=1
-    links:
-      - mysqlserver
 
  
