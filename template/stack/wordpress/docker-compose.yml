@@ -21,6 +21,10 @@ services:
   php:
     image: php:fpm
     restart: always
+    depends_on:
+      - mysqlserver
+    links:
+      - mysqlserver
     volumes:
       - /home/sites/aws.dev.br/public:/var/www/html
       - /home/beta/php.ini:/usr/local/etc/php/php.ini 
