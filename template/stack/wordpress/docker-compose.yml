@@ -17,7 +17,7 @@ services:
 
 
   php:
-    image: wordpress:php7.4-fpm
+    image: wordpress
     depends_on:
       - mysqlserver
     links:
