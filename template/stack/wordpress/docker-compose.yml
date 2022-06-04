@@ -8,6 +8,8 @@ services:
     image: nginx:alpine
     ports:
       - "8081:80"
+    networks:
+      - wp01
     depends_on:
       - php
     links:
@@ -20,6 +22,8 @@ services:
 
   php:
     image: php:fpm
+    networks:
+      - wp01
     restart: always
     volumes:
       - /home/beta/public:/var/www/html
@@ -27,6 +31,6 @@ services:
     
 
 
-#networks:
-#  wp01:
+networks:
+  wp01:
   
