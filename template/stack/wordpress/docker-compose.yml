@@ -7,8 +7,8 @@ services:
     image: nginx:alpine
     ports:
       - "8081:80"
-#    depends_on:
-#      - php
+    depends_on:
+      - php
     links:
       - php
     restart: always
@@ -19,8 +19,8 @@ services:
 
   php:
     image: php:fpm
-    #ports:
-    #  - "7001:9000"
+    ports:
+      - "9000"
     restart: always
     #volumes:
      # - /home/sites/aws.dev.br/public:/var/www/html
