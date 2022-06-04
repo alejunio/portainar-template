@@ -1,5 +1,6 @@
 #version: "2"
 version: "2"
+
 services:
 
 
@@ -13,18 +14,19 @@ services:
       - php
     restart: always
     volumes:
-      - /home/devops/nginx/app.conf:/etc/nginx/conf.d/app.conf
-      - /home/sites/aws.dev.br/public:/var/www/html
+      - /home/beta/app.conf:/etc/nginx/conf.d/app.conf
+      - /home/beta/public:/var/www/html
 
 
   php:
     image: php:fpm
     restart: always
     volumes:
-      - /home/sites/aws.dev.br/public:/var/www/html
+      - /home/beta/public:/var/www/html
       - /home/beta/php.ini:/usr/local/etc/php/php.ini 
     
 
 
- 
+networks:
+  wp01:
   
