@@ -13,13 +13,13 @@ services:
     #  - php
     restart: always
     volumes:
-      - /home/devops/nginx/app.conf:/etc/nginx/conf.d/app.conf
+     # - /home/devops/nginx/app.conf:/etc/nginx/conf.d/app.conf
       - /home/sites/aws.dev.br/public:/var/www/html
 
 
 
 volumes:
-  nginx:
+  #nginx:
   public:
  
   
