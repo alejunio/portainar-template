@@ -5,7 +5,7 @@ services:
   wp:
     image: wordpress
     ports:
-      - "8081:80"
+      - "$PHP_VERSION:80"
     depends_on:
       - mysqlserver
     links:
