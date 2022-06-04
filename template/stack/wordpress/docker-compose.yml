@@ -22,7 +22,7 @@ services:
  
 
   mysqlserver:
-    image: mysql:${PHP_VERSION}
+    image: mysql:5.7
     command: [ "--default-authentication-plugin=mysql_native_password" ]
     ports:
       - "3306:3306"
