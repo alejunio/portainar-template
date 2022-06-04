@@ -23,7 +23,7 @@ services:
     restart: always
     volumes:
       - /home/sites/${DOMINIO}/public:/var/www/html
-      - /home/devops/php/php.ini:/usr/local/etc/php/php.ini 
+     # - /home/devops/php/php.ini:/usr/local/etc/php/php.ini 
 
   mysqlserver:
     image: mysql:5.7
