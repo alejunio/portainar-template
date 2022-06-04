@@ -6,7 +6,7 @@ services:
   web:
     image: nginx:alpine
     ports:
-      - "7854:80"
+      - "8081:80"
     depends_on:
       - php
     links:
@@ -17,7 +17,15 @@ services:
       - /home/sites/aws.dev.br/public:/var/www/html
 
 
-
+  php:
+    image: php:7.4-fpm
+    ports:
+      - "9000:9000"
+    restart: always
+    volumes:
+      - /home/sites/aws.dev.br/public:/var/www/html
+    #  - ./conf/php.ini:/usr/local/etc/php/php.ini 
+    
 
 
  
