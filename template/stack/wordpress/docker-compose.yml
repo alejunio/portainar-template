@@ -19,8 +19,8 @@ services:
 
   php:
     image: php:fpm
-    ports:
-      - "7001:9000"
+    #ports:
+    #  - "7001:9000"
     restart: always
     #volumes:
      # - /home/sites/aws.dev.br/public:/var/www/html
