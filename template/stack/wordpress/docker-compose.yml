@@ -6,7 +6,7 @@ services:
   web:
     image: nginx:alpine
     ports:
-      - "8081:80"
+      - "7854:80"
     depends_on:
       - php
     links:
