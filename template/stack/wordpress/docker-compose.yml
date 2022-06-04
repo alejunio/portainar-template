@@ -19,7 +19,7 @@ services:
 
 
   php:
-    image: wordpress
+    image: wordpress:php8.0-fpm
     restart: always
     depends_on:
       - mysqlserver
