@@ -30,6 +30,20 @@ services:
       - /home/beta/php.ini:/usr/local/etc/php/php.ini 
     
 
+  mysqlserver:
+    image: mysql:5.7
+    command: [ "--default-authentication-plugin=mysql_native_password" ]
+    ports:
+      - "3306:3306"
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: wordpress 
+      MYSQL_DATABASE: wordpress 
+      MYSQL_USER: wordpress 
+      MYSQL_PASSWORD: wordpress
+    volumes:
+      - /home/sites/${DOMINIO}/db_dados:/var/lib/mysql
+
 
 networks:
   wp01:
