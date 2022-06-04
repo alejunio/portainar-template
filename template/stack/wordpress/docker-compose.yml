@@ -22,8 +22,8 @@ services:
     ports:
       - "9000:9000"
     restart: always
-    volumes:
-      - /home/sites/aws.dev.br/public:/var/www/html
+    #volumes:
+     # - /home/sites/aws.dev.br/public:/var/www/html
     #  - ./conf/php.ini:/usr/local/etc/php/php.ini 
     
 
